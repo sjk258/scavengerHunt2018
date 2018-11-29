@@ -5,7 +5,7 @@ Meteor.startup(() => {
 });
 
 Router.route('/intro', {where: 'server'})
-  .get(function(){
+  .post(function(){
     var response = {
       "error" : false,
       "message" : {
