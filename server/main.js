@@ -55,7 +55,7 @@ Router.route('/a1', {where: 'server'})
 
     if (answer.includes("nice") && answer.includes("list")) {
       response = {
-        "text": "You did it! The answer was 'NICE LIST'\nCongratulations on this amazing feat! If you check your bed-side cabinet, you'll find a delightful reward! Enjoy, you've earned it."
+        "text": "You did it! The answer was 'NICE LIST'\nCongratulations on this amazing feat! If you check your bed-side cabinet, you'll find a delightful reward! Enjoy, you've earned it.",
         "attachments" :
         [
           { "text": "To continue to question 2, use command '/q2 bojangles'" }
