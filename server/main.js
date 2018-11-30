@@ -8,11 +8,10 @@ Router.route('/intro', {where: 'server'})
   .post(function(){
     var response = {
       "text": "Meet Santa Clause! (basically)",
-      "attachments" : {
+      "attachments" :
         [
           { "text": "Ho Ho Ho!" }
         ]
-      }
     };
     this.response.setHeader('Content-Type', 'application/json');
     this.response.end(JSON.stringify(response));
