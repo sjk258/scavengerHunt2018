@@ -18,11 +18,11 @@ Router.route('/intro', {where: 'server'})
         "Fear not though, fear not. There's still time, we can fix this! But I'm going to need you to prove your dedication.\n\n" +
         "I have a series of puzzles that need solving. The more you solve, the further up the list you'll go, and the more gifts you'll receive. And I see you've already completed " +
         "your first, jolly good! After each puzzle is solved, I'll be directing you to a gift and providing you the key to the next puzzle. Upon solving all of the puzzles, you'll receive " +
-        "your final treat. And more importantly, a spot on the nice list!\n\nAll you have to do is continue communicating with me here. For example, send me the command '\q1' to here the first " +
-        "riddle. Once solved, respond with command '\a1 solution' and, if correct, I'll provide you the location of your treat and the key to the next question! It's really that simple!\n",
+        "your final treat. And more importantly, a spot on the nice list!\n\nAll you have to do is continue communicating with me here. For example, send me the command '/q1' to here the first " +
+        "riddle. Once solved, respond with command '/a1 solution' and, if correct, I'll provide you the location of your treat and the key to the next question! It's really that simple!\n",
       "attachments" :
         [
-          { "text": "The office closet contains a treat! Enjoy it wisely now. Send command \q1 to continue..." }
+          { "text": "The office closet contains a treat! Enjoy it wisely now. Send command /q1 to continue..." }
         ]
     };
     this.response.setHeader('Content-Type', 'application/json');
