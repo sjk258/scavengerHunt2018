@@ -4,10 +4,15 @@ Meteor.startup(() => {
   // code to run on server at startup
 });
 
+Router.onBeforeAction(Iron.Router.bodyParser.urlencoded({
+  extended: false
+}));
+
 Router.route('/intro', {where: 'server'})
   .post(function(){
+
     var response = {
-      "text": "Meet Santa Clause! (basically)",
+      "text": "Meet Santa Clause! (basically)" + this.request.body.user_name,
       "attachments" :
         [
           { "text": "Ho Ho Ho!" }
