@@ -58,7 +58,7 @@ Router.route('/a1', {where: 'server'})
         "text": "You did it! The answer was 'NICE LIST'\nCongratulations on this amazing feat! If you check your bed-side cabinet, you'll find a delightful reward! Enjoy, you've earned it.",
         "attachments" :
         [
-          { "text": "To continue to question 2, use command '/q2 bojangles'" }
+          { "text": "To continue to riddle 2, use command '/q2 bojangles'" }
         ]
       };
     }
@@ -68,4 +68,148 @@ Router.route('/a1', {where: 'server'})
 
     this.response.setHeader('Content-Type', 'application/json');
     this.response.end(JSON.stringify(response));
-  })
+});
+
+Router.route('/q2', {where: 'server'})
+  .post(function(){
+    var key = this.request.body.text.toLowerCase().trim();
+    response = undefined;
+
+    if (key.includes("bojangles")) {
+      response = { 
+        "text": "Not bad, not bad, now a little less obvious I think! What do you make of this?\n" +
+          "5-533-9-22\n3-389-23-8\n4-302-20-4\n6-242-8-16\n7-28-1-9",
+        "attachments" :
+        [
+          {
+            "title": "Hint",
+            "text": "With an aunt and uncle like that, I'd not want to spend Christmas with family either..."
+          }
+        ]
+      }
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/a2', {where: 'server'})
+  .post(function(){
+    var answer = this.request.body.text.toLowerCase().trim();
+    var response = undefined;
+
+    if (answer.includes("merry")) {
+      response = {
+        "text": "Wonderful! Harry Potter, a favorite, hid the secret the whole time. And you figured it out! Bravo, bravo. There's a blue backpack containing a prize. I'd hurry to check it if I were you!",
+        "attachments" :
+        [
+          { "text": "To continue to riddle 3, use command '/q3 rudolph'" }
+        ]
+      };
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/q3', {where: 'server'})
+  .post(function(){
+    var key = this.request.body.text.toLowerCase().trim();
+    response = undefined;
+
+    if (key.includes("rudolph")) {
+      response = { 
+        "text": "Hang on there sparky! We're not quite ready for you. But I promise, we'll be up and running in time for the big day!",
+        "attachments" :
+        [
+          {
+            "text": "You're moving too fast! Check back soon for this riddle."
+          }
+        ]
+      }
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/a3', {where: 'server'})
+  .post(function(){
+    response = undefined;
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/q4', {where: 'server'})
+  .post(function(){
+    var key = this.request.body.text.toLowerCase().trim();
+    response = undefined;
+
+    if (key.includes("december")) {
+      response = { 
+        "text": "Hang on there sparky! We're not quite ready for you. But I promise, we'll be up and running in time for the big day!",
+        "attachments" :
+        [
+          {
+            "text": "You're moving too fast! Check back soon for this riddle."
+          }
+        ]
+      }
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/a4', {where: 'server'})
+  .post(function(){
+    response = undefined;
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/q5', {where: 'server'})
+  .post(function(){
+    var key = this.request.body.text.toLowerCase().trim();
+    response = undefined;
+
+    if (key.includes("mistletoe")) {
+      response = { 
+        "text": "Hang on there sparky! We're not quite ready for you. But I promise, we'll be up and running in time for the big day!",
+        "attachments" :
+        [
+          {
+            "text": "You're moving too fast! Check back soon for this riddle."
+          }
+        ]
+      }
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
+
+Router.route('/a5', {where: 'server'})
+  .post(function(){
+    response = undefined;
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
+});
