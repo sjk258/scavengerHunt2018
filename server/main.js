@@ -7,9 +7,8 @@ Meteor.startup(() => {
 Router.route('/intro', {where: 'server'})
   .post(function(){
     var response = {
-      "error" : false,
-      "status" : "200",
-      "message" : {
+      "text": "Meet Santa Clause! (basically)",
+      "attachments" : {
         "text": "Ho Ho Ho!"
       }
     };
