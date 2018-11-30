@@ -9,7 +9,9 @@ Router.route('/intro', {where: 'server'})
     var response = {
       "text": "Meet Santa Clause! (basically)",
       "attachments" : {
-        "text": "Ho Ho Ho!"
+        [
+          { "text": "Ho Ho Ho!" }
+        ]
       }
     };
     this.response.setHeader('Content-Type', 'application/json');
