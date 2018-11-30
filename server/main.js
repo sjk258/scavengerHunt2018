@@ -46,4 +46,23 @@ Router.route('/q1', {where: 'server'})
 
     this.response.setHeader('Content-Type', 'application/json');
     this.response.end(JSON.stringify(response));
-  });
+});
+
+Router.route('/a1', {where: 'server'})
+  .post(function(){
+    var answer = this.request.body.text.toLowerCase().trim();
+    var response = undefined;
+
+    if (answer.includes("nice") && answer.includes("list")) {
+      response = {
+        "text": "You did it! The answer was 'NICE LIST'\nCongratulations on this amazing feat! If you check your bed-side cabinet, you'll find a delightful reward! Enjoy, you've earned it."
+        "attachments" :
+        [
+          { "text": "To continue to question 2, use command '/q2 bojangles'" }
+        ]
+      };
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
+  })
