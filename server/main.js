@@ -65,4 +65,7 @@ Router.route('/a1', {where: 'server'})
     else {
       response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
     }
+
+    this.response.setHeader('Content-Type', 'application/json');
+    this.response.end(JSON.stringify(response));
   })
