@@ -174,12 +174,19 @@ Router.route('/q4', {where: 'server'})
 
     if (key.includes("december")) {
       response = { 
-        "text": "Hang on there sparky! We're not quite ready for you. But I promise, we'll be up and running in time for the big day!",
+        "text": "Well well well, you're almost there. I must say, I can't believe you've made it this far! Quite impressed I am you know. But now, I'm in a real predicament...\n" +
+                "Rudolph, Santa, the snowman and the nutcracker were all involved in a gift exchange this year. But when the day came, no one could remember who brought what gift, or who each gift was for! " +
+                "(you can't make this stuff up)\nAll they have to go off of is the colors of each gift: Red, Blue, Purple, Yellow - and a series of clues...\n\nI'm sure we can make sense of the whole thing. " +
+                "To start, can you tell me who gave the blue gift? Also, what color gift did Rudolph receive?\n\n<Answer in the from 'answer1 answer2'>",
         "attachments" :
         [
-          {
-            "text": "You're moving too fast! Check back soon for this riddle."
-          }
+          { "title": "Hint 1", "text": "The snowman is disappointed, he has never gotten to give Rudolph a gift!" },
+          { "title": "Hint 2", "text": "Santa Claus is certain that his gift came from either the nutcracker or Rudolph..." },
+          { "title": "Hint 1", "text": "No one gave themselves a gift... duh" },
+          { "title": "Hint 1", "text": "Santa Claus ALWAYS wraps his gifts in red wrapping paper." },
+          { "title": "Hint 1", "text": "The nutcracker found a special gift this year, a nice black top-hat!" },
+          { "title": "Hint 1", "text": "Rudolph can't give purple wrapping paper, though he can receive it." },
+          { "title": "Hint 1", "text": "The nutcracker received a gift this year the same color as his hat, yellow!" }
         ]
       }
     }
@@ -193,7 +200,21 @@ Router.route('/q4', {where: 'server'})
 
 Router.route('/a4', {where: 'server'})
   .post(function(){
-    response = undefined;
+    var answer = this.request.body.text.toLowerCase().trim();
+    var response = undefined;
+
+    if (answer.includes("nutcracker") && answer.includes("red")) {
+      response = {
+        "text": "You solved the puzzle, and everyone got their gifts! Bravo!!! And for your gift, check under the bathroom sink. MY bathroom sink ;)",
+        "attachments" :
+        [
+          { "text": "To continue to your final riddle, use command '/q5 mistletoe'" }
+        ]
+      };
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
 
     this.response.setHeader('Content-Type', 'application/json');
     this.response.end(JSON.stringify(response));
@@ -206,7 +227,7 @@ Router.route('/q5', {where: 'server'})
 
     if (key.includes("mistletoe")) {
       response = { 
-        "text": "Hang on there sparky! We're not quite ready for you. But I promise, we'll be up and running in time for the big day!",
+        "text": "This is it, the final stretch, the big hurrah! We've made it so far! but you'll have to wait just a couple days to see this one honey.",
         "attachments" :
         [
           {
