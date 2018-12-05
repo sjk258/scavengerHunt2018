@@ -73,7 +73,7 @@ Router.route('/a1', {where: 'server'})
 Router.route('/q2', {where: 'server'})
   .post(function(){
     var key = this.request.body.text.toLowerCase().trim();
-    response = undefined;
+    var response = undefined;
 
     if (key.includes("bojangles")) {
       response = { 
@@ -121,15 +121,16 @@ Router.route('/a2', {where: 'server'})
 Router.route('/q3', {where: 'server'})
   .post(function(){
     var key = this.request.body.text.toLowerCase().trim();
-    response = undefined;
+    var response = undefined;
 
     if (key.includes("rudolph")) {
       response = { 
-        "text": "Hang on there sparky! We're not quite ready for you. But I promise, we'll be up and running in time for the big day!",
+        "text": "Well I hope you enjoyed your break! It's time to jump right back into the thick of it now though. And worry not! This is a simple one:\n344664",
         "attachments" :
         [
           {
-            "text": "You're moving too fast! Check back soon for this riddle."
+            "title": "Hint",
+            "text": "If you're struggling, try phoning a friend."
           }
         ]
       }
@@ -144,7 +145,23 @@ Router.route('/q3', {where: 'server'})
 
 Router.route('/a3', {where: 'server'})
   .post(function(){
-    response = undefined;
+    var answer = this.request.body.text.toLowerCase().trim();
+    var response = undefined;
+
+    if (answer.includes("eggnog")) {
+      response = { 
+        "text": "You did it! I knew you could. But no, the prize is actually NOT eggnog (shocker)! If you want to see what it is, I'd check the garage. That cooler has got your NAME on it! ;)",
+        "attachments" :
+        [
+          {
+            "text": "To continue to riddle 4, use command '/q4 december'"
+          }
+        ]
+      }
+    }
+    else {
+      response = { "text": "I'm sorry " + this.request.body.user_name + ", that's not quite right. Try again!" };
+    }
 
     this.response.setHeader('Content-Type', 'application/json');
     this.response.end(JSON.stringify(response));
